@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript task 6</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            padding: 50px 0;
+        }
+
+        .form-container {
+            width: 70%;
+            background: #f0f0f0;
+            padding: 30px;
+            max-width: 450px;
+            border-radius: 5px;
+            box-shadow: rgba(3, 3, 3, 0.1) 5px 5px 5px 5px;
+        }
+
+        .form-container__title {
+            font-size: 38px;
+            color: #555;
+            margin-bottom: 7px;
+            
+            text-align: center;
+        }
+
+        .form__label {
+            margin-bottom: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #777;
+        }
+
+        .form__input {
+            width: 100%;
+            padding: 15px 15px;
+            border: 0;
+            background: white;
+            border-radius: 5px;
+            font-size: 18px;
+            color: #555;
+            font-weight: 600;
+            border: 1px solid #b3adac;
+        }
+
+        .form__submit {
+            background: #037ef3;
+            color: #fff;
+            font-weight: 600;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 15px 15px;
+            border: 0;
+            transition: all 0.8s;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .form__submit:hover {
+            background: #0271da;
+        }
+
+        .signup-link {
+            text-align: center; /* Center-align the content */
+            margin: 20px; /* Add some spacing between the form and the link */
+        }
+
+        .form__field--error input {
+            border: 1px solid #e74c3c;
+        }
+
+        .form__error {
+            color: #e74c3c;
+            margin-top: 10px;
+            height: 20px;
+        }
+
+        .form__label i {
+            margin-right: 5px; /* Add spacing between the icon and text */
+            font-size: 18px; /* Adjust the icon size */
+            color: #555; /* Icon color */
+        }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <div class="form-container__details">
+        <div class="form-container__title"><i>Instagram</i></div>
+        <div class="form-container__subtitle">
+
+        </div>
+    </div>
+    <form class="form js-form">
+        <div class="form__field">
+            <div class="form__label"><i class="fa fa-user"></i> </div>
+            <input class="form__input js-name-input" type="text" placeholder="Username"/>
+            <div class="form__error js-error"></div>
+        </div>
+        <div class="form__field">
+            <div class="form__label"><i class="fa fa-lock"></i> </div>
+            <input class="form__input js-password-input" type="password" placeholder="Password"/>
+            <div class="form__error js-error"></div>
+        </div>
+        <button class="form__submit">Login</button>
+    </form>
+    <div class="form-container__line-divider"></div>
+    <div class="form-container__links">
+        <table style="width:100%">
+            <tr>
+                <td><div align="left"><input type="checkbox" required="True"> Remember me</div></td>
+                <td><a href="#" class="form-container__link">Forgot password</a></td>
+            </tr>
+        </table>
+        <br><center>
+            Don't have an account? <a  href="#">Sign in</a>
+        </center>
+
+    </div>
+</div>
+
+    <script>
+        const form = document.querySelector(".js-form");
+        const $nameInput = document.querySelector(".js-name-input");
+        const $passwordInput = document.querySelector(".js-password-input");
+      
+        const validate = () => {
+          const validateField = ($input, errorMessage) => {
+            const value = $input.value.trim();
+            if (!value) {
+              $input.parentNode.classList.add("form__field--error");
+              $input.nextElementSibling.innerText = errorMessage;
+            } else {
+              $input.parentNode.classList.remove("form__field--error");
+              $input.nextElementSibling.innerText = "";
+            }
+          };
+      
+          validateField($nameInput, "Name can't be blank");
+          validateField($passwordInput, "Password can't be blank");
+        };
+      
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          validate();
+        });
+      </script>
+  </body>
+</html>
+
+
+

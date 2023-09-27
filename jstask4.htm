@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript task 4</title>
+    </head>
+<body>
+    <center>
+<br><br><br>
+<input type="button" onClick="date()" Value="Show date" />
+<p id="d"></p>
+<br>
+<input type="button" onClick="time()" Value="Show  time" />
+<p id="t"></p>
+
+
+<script>
+function date(){
+    const cd = new Date();
+    const day = cd.getDate();
+    const monthIndex = cd.getMonth();
+    const year = cd.getFullYear();
+
+    const months = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+    ];
+    const monthName = months[monthIndex];
+    const da = `${day}/${monthName}/${year}`;
+    document.getElementById("d").innerHTML = da; 
+    }
+
+function time(){
+    const ti = new Date();
+    document.getElementById("t").innerHTML = ti;
+
+}
+
+</script>
+
+</center>
+</body>
+</html>

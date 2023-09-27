@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!doctype html>
+<html>
+<head>
+   <title>Javascript task 2</title>
+</head>
+<body>
+   <div id="result"></div>
+   <script>
+      function alphaOrder(){
+        var y=(document.getElementById("demo").value);
+         var arr = y.split("");
+         arr.sort();
+         var sorted = arr.join("");
+         alert(sorted) 
+      }
+      
+   </script>
+</body>
+Enter a string: <input id="demo">
+<button onclick="alphaOrder()">Check</button></br></br>
+</html>

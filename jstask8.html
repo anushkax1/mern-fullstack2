@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Javascript TASK 8</title>
+        <style>
+            form {
+                max-width: fit-content;
+                background-color: antiquewhite;
+                background-image: linear-gradient(rgb(226, 122, 171), antiquewhite);
+            }
+            table {
+                padding: 5px;
+            }
+            #button {
+                background-color: rgb(232, 48, 103);
+                color: white;
+                border-radius: 5px;
+            }
+            div.error {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <form action="https://ethnus.com/" onsubmit="return validate()">
+                <h1><center>Registration form</center></h1>
+                <table cellpadding="5" cellspacing="0">
+                    <tr>
+                        <td>
+                            First Name:
+                        </td>
+                        <td>
+                            <input id="x1" type="text" name="fn" placeholder="Type first name" required="True">
+                        </td>
+                        <td><div class="error" id="y1"></div></td>
+                    </tr>
+                
+                <tr>
+                    <td>
+                        Last Name:
+                    </td>
+                    <td>
+                        <input id="x2" type="text" name="ln"  required="True">
+                    </td>
+                    <td><div class="error" id="y2"></div></td>
+                </tr>
+                <tr>
+                    <td>
+                         Password:
+                    </td>
+                    <td>
+                        <input id="x3" type="password" required="True">
+                    </td>
+                    <td><div class="error" id="y3"></div></td>
+                 </tr>
+                 <tr>
+                    <td>
+                        Confirm Password:
+                    </td>
+                    <td>
+                        <input id="x4" type="password" required="True">
+                    </td>
+                    <td><div class="error" id="y4"></div></td>
+
+                 </tr>
+                 <tr>
+                    <td>
+                        Gender:
+                    </td>
+                    <td>
+                         <input type="radio"> Male<br>
+                         <input type="radio"> Female
+                    </td>
+                 </tr>
+                 <tr>
+                    <td>
+                         Age:
+                    </td>
+                    <td>
+                        <input id="x5" type="number"  required="True">
+                    </td>
+                    <td><div class="error" id="y5"></div></td>
+
+                 </tr>
+                 <tr>
+                    <td>
+                        Phone Number:
+                    </td>
+                    <td>
+                        <input id="x6" type="text"   required="True">
+                    </td>
+                    <td><div class="error" id="y6"></div></td>
+
+                </tr>
+                <tr>
+                    <td>
+                         Address:
+                    </td>
+                    <td>
+                        <input id="x7" type="text"  required="True" >
+                    </td>
+                    <td><div class="error" id="y7"></div></td>
+
+                 </tr>
+                 <tr>
+                    <td>
+                         State:
+                    </td>
+                    <td>
+                        <input id="x8" type="text"  required="True">
+                    </td>
+                    <td><div class="error" id="y8"></div></td>
+
+                 </tr>
+                 <tr>
+                    <td>
+                         Country:
+                    </td>
+                    <td>
+                        <select name="gender">
+                            <option value="">Please select one…</option>
+                            <option value="">India</option>
+                            <option value="">Germany</option>
+                            <option value="">France</option>
+                            <option value="">Canada</option>
+                    </td>
+                 </tr>
+                 <tr>
+                    <td>
+                        Languages known:
+                    </td>
+                    <td>
+                         <input type="radio"> English
+                         <input type="radio"> Hindi
+                         <input type="radio"> Telugu
+                         <input type="radio"> Kannada
+                    </td>
+                 </tr>
+                    <tr>
+                        <th colspan="2">
+                            <div align="left"><input type="checkbox" required="True" style="color:black;"> I hereby declare the details are true</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th colspan="2">
+                            <div align="right" style="color: black;">Login to <a href="https://ethnus.com/">ethnus</a> website</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th colspan="2">
+                            <input button id="button" type="submit" value="Register">
+                        </th>
+                    </tr>
+                </table>
+            </form>
+        </center>
+
+        <script>
+            function validate() {
+                var fn = document.getElementById("x1").value;
+                var ln = document.getElementById("x2").value;
+                var pw = document.getElementById("x3").value;
+                var cpw = document.getElementById("x4").value;
+                var age = document.getElementById("x5").value;
+                var ph = document.getElementById("x6").value;
+                var addr = document.getElementById("x7").value;
+                var st = document.getElementById("x8").value;
+
+                var isValid = true;
+
+                if (fn.length < 5) {
+                    document.getElementById("y1").innerHTML = "POOR";
+                    isValid = false;
+                }
+                if (ln.length < 5) {
+                    document.getElementById("y2").innerHTML = "POOR";
+                    isValid = false;
+                }
+                if (pw.length < 5) {
+                    document.getElementById("y3").innerHTML = "POOR";
+                    isValid = false;
+                }
+                if (cpw.length < 5 || cpw !== pw) {
+                    document.getElementById("y4").innerHTML = "POOR OR MISMATCH";
+                    isValid = false;
+                }
+                if (age <= 0) {
+                    document.getElementById("y5").innerHTML = "AGE INVALID";
+                    isValid = false;
+                }
+                if (ph.length !== 10) {
+                    document.getElementById("y6").innerHTML = "INVALID";
+                    isValid = false;
+                }
+                if (addr.length < 5) {
+                    document.getElementById("y7").innerHTML = "POOR";
+                    isValid = false;
+                }
+                if (st.length < 5) {
+                    document.getElementById("y8").innerHTML = "POOR";
+                    isValid = false;
+                }
+
+                return isValid; // Form submission will occur if isValid is true.
+            }
+        </script>
+    </body>
+</html>
